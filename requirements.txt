@@ -1,3 +1,4 @@
-gradio
-transformers 
-tensorflow
+transformers==4.57.6
+huggingface-hub==0.36.2
+torch
+gradio==5.50.0

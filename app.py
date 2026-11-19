@@ -20,16 +20,16 @@ def predict(prompt):
     return summary
 
 # Build the Gradio user interface
-with gr.Blocks as demo:
+with gr.Blocks() as demo:
     # Input component: accepts text from user 
-    textbox = gr.Textbox(placeholder="Enter text block to summarize", lines=4)
+    textbox = gr.Textbox(placeholder="Enter text block to summarize", lines=4, label="Input Text")
     
     # Output component: displays the generated summary 
     output = gr.Textbox(label="Summary")
     # Button triggers the prediction function 
-    button = gr.Button("Summarization")
+    button = gr.Button("Summarize")
 
     # Connect inputs, function and outputs 
     button.click(fn=predict, inputs=textbox, outputs=output)
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=7860)
